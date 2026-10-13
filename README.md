@@ -10,11 +10,11 @@ Old phones still contain useful computing power, screens, storage, and connectio
 
 Playback and fullscreen view:
 
-<video src="https://github.com/user-attachments/assets/6bc2bf05-0b12-4076-b8ec-dc81db120e6f" controls="controls" muted="muted" playsinline="playsinline"></video>
+<video src="https://github.com/Martin-Atrin/Hushilume/raw/refs/heads/main/docs/media/hushilume-playback.mp4" controls="controls" muted="muted" playsinline="playsinline"></video>
 
 Settings and media sources:
 
-<video src="https://github.com/user-attachments/assets/c478665a-99cb-49e0-9d5e-0fbe8b3c12fb" controls="controls" muted="muted" playsinline="playsinline"></video>
+<video src="https://github.com/Martin-Atrin/Hushilume/raw/refs/heads/main/docs/media/hushilume-settings.mp4" controls="controls" muted="muted" playsinline="playsinline"></video>
 
 These silent recordings show the actual local app with the Mi A3 media profile and landscape screen shape. They are browser captures, not recordings from the physical phone. The demo uses a personal media library, which is not bundled with the public app. Import your own media to make it yours.
 
