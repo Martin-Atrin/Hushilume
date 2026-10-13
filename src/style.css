@@ -423,6 +423,18 @@ button:focus-visible {
   opacity: 0.48;
   box-shadow: inset 0 0 24px var(--accent);
 }
+.ambient-notch-glow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 20px;
+  filter: blur(20px);
+  opacity: 0.48;
+  overflow: visible;
+}
 .room[data-mode="entering"] .ambient-glow,
 .room[data-mode="ambient"] .ambient-glow {
   opacity: 1;
@@ -466,7 +478,7 @@ body {
 }
 .room[data-mode="ambient"] .notch-blend,
 .room[data-mode="entering"] .notch-blend {
-  filter: drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 5px #000);
+  filter: none;
 }
 
 /* Card borders trace the physical notch with the same clearance as the hub. */

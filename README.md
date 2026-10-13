@@ -8,9 +8,13 @@ Old phones still contain useful computing power, screens, storage, and connectio
 
 ## See it running
 
-[![Hushilume scene changes and fullscreen playback](docs/media/hushilume-preview.gif)](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-playback.mp4)
+Playback and fullscreen view:
 
-[Watch playback and scene changes](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-playback.mp4) · [Watch the settings demo](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-settings.mp4)
+<video src="https://github.com/user-attachments/assets/6bc2bf05-0b12-4076-b8ec-dc81db120e6f" controls="controls" muted="muted" playsinline="playsinline"></video>
+
+Settings and media sources:
+
+<video src="https://github.com/user-attachments/assets/c478665a-99cb-49e0-9d5e-0fbe8b3c12fb" controls="controls" muted="muted" playsinline="playsinline"></video>
 
 These silent recordings show the actual local app with the Mi A3 media profile and landscape screen shape. They are browser captures, not recordings from the physical phone. The demo uses a personal media library, which is not bundled with the public app. Import your own media to make it yours.
 
@@ -48,7 +52,7 @@ Videos are muted and overlap at their loop boundary. A missing or failed video u
 
 ## Screen shape
 
-Settings include automatic Mi A3 detection, no cutout for iPad, teardrop, wide notch, pill, and camera-hole shapes. Tune width, depth, edge, and position. Automatic edge selection follows orientation. The card borders trace the selected shape and the central control with a six-pixel gap.
+Settings include automatic Mi A3 detection, no cutout for iPad, teardrop, wide notch, pill, and camera-hole shapes. Tune width, depth, edge, and position. Automatic edge selection follows orientation. The card borders trace the selected shape and the central control with a six-pixel gap. The fullscreen glow follows the same cutout and stays outside that gap.
 
 Other device presets are cosmetic templates. They do not claim to measure the physical cutout on every device. Use the controls to match your device.
 

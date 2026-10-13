@@ -13,6 +13,7 @@ export function configureContours(getNotch: () => Notch) {
   const play = document.querySelector<HTMLElement>(".play")!;
   const pads = [...document.querySelectorAll<HTMLElement>(".pad")];
   const overlay = document.querySelector<SVGElement>(".notch-blend")!;
+  const ambientGlow = document.querySelector<HTMLElement>(".ambient-glow")!;
   let detected: "teardrop" | "none" = "none";
   const outlines = pads.map((pad) => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -61,6 +62,15 @@ export function configureContours(getNotch: () => Notch) {
     overlay.setAttribute("viewBox", `0 0 ${innerWidth} ${innerHeight}`);
     overlay.innerHTML = enabled
       ? `<path d="${path}" transform="matrix(${matrix.join(" ")})"/>`
+      : "";
+    const screenShape = `<path d="${path}" transform="matrix(${matrix.join(" ")})" vector-effect="non-scaling-stroke"/>`;
+    const ambientMask = `<svg xmlns="http://www.w3.org/2000/svg" width="${innerWidth}" height="${innerHeight}"><mask id="cut"><rect width="100%" height="100%" fill="white"/><g fill="black" stroke="black" stroke-width="12" stroke-linejoin="round">${screenShape}</g></mask><rect width="100%" height="100%" fill="white" mask="url(#cut)"/></svg>`;
+    // Mask the completed blur, not its source, so color cannot spill into the cutout.
+    ambientGlow.style.maskImage = enabled
+      ? `url("data:image/svg+xml,${encodeURIComponent(ambientMask)}")`
+      : "none";
+    ambientGlow.innerHTML = enabled
+      ? `<svg class="ambient-notch-glow" viewBox="0 0 ${innerWidth} ${innerHeight}" aria-hidden="true">${screenShape}</svg>`
       : "";
     for (const [index, pad] of pads.entries()) {
       const rect = pad.getBoundingClientRect();
