@@ -8,11 +8,11 @@ Old phones still contain useful computing power, screens, storage, and connectio
 
 ## See it running
 
-[![Fullscreen playback with the corrected notch](docs/media/hushilume-preview.gif)](https://martin-atrin.github.io/Hushilume/#playback)
+[![Fullscreen playback with the corrected notch](docs/media/playback-poster.jpg)](https://martin-atrin.github.io/Hushilume/#playback)
 
 [Watch playback](https://martin-atrin.github.io/Hushilume/#playback) · [Watch settings](https://martin-atrin.github.io/Hushilume/#settings)
 
-These silent recordings show the actual local app with the Mi A3 media profile and landscape screen shape. They are browser captures, not recordings from the physical phone. The demo uses a personal media library, which is not bundled with the public app. Import your own media to make it yours.
+These silent 1080p, 30 fps Hyperframes renders reconstruct the app interface using Hushilume’s design and local Mi A3 media. They are constructed demonstrations, not recordings from the physical phone. The demo uses a personal media library, which is not bundled with the public app. Import your own media to make it yours.
 
 [Source and releases](https://github.com/Martin-Atrin/Hushilume).
 
