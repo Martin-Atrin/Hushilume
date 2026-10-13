@@ -10,4 +10,4 @@ The MIT license covers Hushilume source and original assets under `public/hushil
 
 YouTube, Spotify, and SoundCloud content is delivered by the respective provider. Provider names identify supported services and do not imply endorsement. Imported audio, images, and video remain subject to their own rights and licenses.
 
-No downloaded music, private media metadata, third-party photography, or stock footage is included in this repository or its public default build.
+The public default build includes no downloaded music, private media metadata, third-party photography, or stock footage. README demo recordings show the app with a personal media configuration. Media visible within those recordings retains its own rights and is not covered by this project's MIT license. The recordings are silent; no music from the private library is redistributed.

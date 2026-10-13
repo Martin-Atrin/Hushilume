@@ -1,6 +1,18 @@
 ![Hushilume](public/hushilume/banner.svg)
 
-A quiet, personal listening space for Android and iPad. Four cards, one central control, and a fullscreen ambient view.
+Give old hardware a useful second life.
+
+Hushilume began with an old Mi A3 phone and an old speaker that were lying around. Together, they became a quiet music player with moving backgrounds, four large cards, and one central control.
+
+Old phones still contain useful computing power, screens, storage, and connections. This project starts with one simple use for that hardware. More uses can come later. **For now, it plays music.**
+
+## See it running
+
+[![Hushilume scene changes and fullscreen playback](docs/media/hushilume-preview.gif)](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-playback.mp4)
+
+[Watch playback and scene changes](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-playback.mp4) · [Watch the settings demo](https://github.com/Martin-Atrin/Hushilume/releases/download/v0.3.0/hushilume-settings.mp4)
+
+These silent recordings show the actual local app with the Mi A3 media profile and landscape screen shape. They are browser captures, not recordings from the physical phone. The demo uses a personal media library, which is not bundled with the public app. Import your own media to make it yours.
 
 [Source and releases](https://github.com/Martin-Atrin/Hushilume).
 
@@ -88,6 +100,10 @@ See [Apple's registered-device distribution guide](https://developer.apple.com/d
 - `android/`, `ios/`: native platform projects
 
 No backend, telemetry, advertising SDK, or account is required. Local imports stay on the device. Provider players make requests to their respective services when opened. HTTPS cover and video URLs make requests to their hosts.
+
+## What comes next
+
+Music is the first use for this hardware. The wider goal is to find small, practical jobs for devices that still work. Further uses of the phone's computing power are open for exploration; they are not implemented features or a fixed roadmap.
 
 ## License
 
