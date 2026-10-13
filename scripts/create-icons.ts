@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { mkdir, writeFile } from "node:fs/promises";
-const svg = "public/ambiance/logo.svg";
+const svg = "public/hushilume/logo.svg";
 const ios = "ios/App/App/Assets.xcassets/AppIcon.appiconset";
 await mkdir(ios, { recursive: true });
 await sharp(svg).resize(1024, 1024).png().toFile(`${ios}/AppIcon-512@2x.png`);

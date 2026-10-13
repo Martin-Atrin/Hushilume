@@ -12,6 +12,7 @@ export type Notch = {
   offset: number;
 };
 export type AppConfig = { version: 1; cards: Card[]; notch: Notch };
+// Preserve settings from installations made before the Hushilume rename.
 const key = "ambiance-settings-v1";
 export const emptySource = (): Source => ({
   kind: "library",

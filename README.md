@@ -1,8 +1,10 @@
-![Ambiance](public/ambiance/banner.svg)
+![Hushilume](public/hushilume/banner.svg)
 
 A quiet, personal listening space for Android and iPad. Four cards, one central control, and a fullscreen ambient view.
 
-Ambiance is a TypeScript app packaged with Capacitor. It is designed for private installation, without an app-store account or a server. iOS signing still follows Apple's device provisioning rules.
+[Source and releases](https://github.com/Martin-Atrin/Hushilume).
+
+Hushilume is a TypeScript app packaged with Capacitor. It is designed for private installation, without an app-store account or a server. iOS signing still follows Apple's device provisioning rules.
 
 ## Use it
 
@@ -15,6 +17,8 @@ Ambiance is a TypeScript app packaged with Capacitor. It is designed for private
 Tap a card to play. Tap the selected card again to advance its scene. Tap the center to pause or resume. After 15 seconds, local playback enters the ambient view. Tap anywhere to return.
 
 The public build includes original artwork and moving light backgrounds. **It does not include a music library.** Import your own audio to play offline. Imports are copied into the app, so they survive restarts. Uninstalling the app removes imported files and settings.
+
+Hushilume was previously named Ambiance. The application ID and storage identifiers stay unchanged so updates retain existing files and settings.
 
 ## Media sources
 
@@ -80,11 +84,11 @@ See [Apple's registered-device distribution guide](https://developer.apple.com/d
 - `src/media-store.ts`: native file copying and browser IndexedDB storage
 - `src/audio.ts`, `src/video-loop.ts`, `src/motion.ts`: local media and motion
 - `src/contours.ts`: card and device cutout geometry
-- `public/ambiance/`: original logo and default artwork
+- `public/hushilume/`: original logo and default artwork
 - `android/`, `ios/`: native platform projects
 
 No backend, telemetry, advertising SDK, or account is required. Local imports stay on the device. Provider players make requests to their respective services when opened. HTTPS cover and video URLs make requests to their hosts.
 
 ## License
 
-Code and original Ambiance artwork: [MIT](LICENSE). Manrope: [SIL Open Font License](public/fonts/OFL.txt). Third-party packages retain their licenses. User-supplied media and provider content are not licensed by this project. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Code and original Hushilume artwork: [MIT](LICENSE). Manrope: [SIL Open Font License](public/fonts/OFL.txt). Third-party packages retain their licenses. User-supplied media and provider content are not licensed by this project. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

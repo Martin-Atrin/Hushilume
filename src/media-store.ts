@@ -3,6 +3,7 @@ import { Directory, Filesystem } from "@capacitor/filesystem";
 import { FilePicker } from "@capawesome/capacitor-file-picker";
 const urls = new Map<string, string>();
 async function database() {
+  // Keep the original database name so installed imports survive the rename.
   return new Promise<IDBDatabase>((resolve, reject) => {
     const request = indexedDB.open("ambiance-media", 1);
     request.onupgradeneeded = () => request.result.createObjectStore("files");
@@ -73,6 +74,8 @@ export async function importMedia(kind: "audio" | "image" | "video") {
   return imported;
 }
 export async function resolveMedia(uri: string): Promise<string> {
+  // Saved settings from versions before Hushilume use the old artwork path.
+  if (uri.startsWith("/ambiance/")) uri = uri.replace("/ambiance/", "/hushilume/");
   if (!uri.startsWith("asset:")) return uri;
   if (urls.has(uri)) return urls.get(uri)!;
   let resolved: string;

@@ -5,7 +5,7 @@ execFileSync("npx", ["tsc", "--noEmit"], { stdio: "inherit" });
 execFileSync("npx", ["vite", "build", "--mode", "android"], {
   stdio: "inherit",
 });
-for (const entry of ["ambiance", "fonts"])
+for (const entry of ["hushilume", "fonts"])
   await cp(`public/${entry}`, `dist-android/${entry}`, { recursive: true });
 if (privateBuild) {
   for (const entry of [

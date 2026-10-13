@@ -21,7 +21,7 @@ export function createSettings(
 ) {
   const dialog = document.createElement("dialog");
   dialog.className = "settings";
-  dialog.setAttribute("aria-label", "Ambiance settings");
+  dialog.setAttribute("aria-label", "Hushilume settings");
   document.body.append(dialog);
   let draft: AppConfig,
     cardIndex = 0,
@@ -53,7 +53,7 @@ export function createSettings(
   function render() {
     const card = draft.cards[cardIndex],
       scene = card.scenes[sceneIndex];
-    dialog.innerHTML = `<header class="settings-head"><img src="/ambiance/logo.svg" alt=""><div><h1>Ambiance</h1><p>Your space. Your sound.</p></div><button type="submit" form="settings-form" class="save-settings header-save">Save</button><button type="button" class="close-settings" aria-label="Close settings">×</button></header>
+    dialog.innerHTML = `<header class="settings-head"><img src="/hushilume/logo.svg" alt=""><div><h1>Hushilume</h1><p>Your space. Your sound.</p></div><button type="submit" form="settings-form" class="save-settings header-save">Save</button><button type="button" class="close-settings" aria-label="Close settings">×</button></header>
     <div class="settings-body"><aside><p class="eyebrow">YOUR CARDS</p>${draft.cards.map((c, i) => `<button type="button" class="card-tab ${i === cardIndex ? "chosen" : ""}" data-card="${i}"><i style="background:${c.color}"></i>${escape(c.name)}</button>`).join("")}<p class="settings-note">Hold the center button to return here.</p></aside>
     <form id="settings-form"><div class="section-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>${escape(card.name)}</h2></div><label class="color-field">Color<input name="card-color" type="color" value="${card.color}"></label></div>
     <label>Card name / genre<input name="card-name" maxlength="40" required value="${escape(card.name)}"></label>
@@ -76,7 +76,7 @@ export function createSettings(
     <p class="source-help"></p>
     <div class="asset-row"><label>Cover image<input name="cover" value="${escape(scene.poster)}" placeholder="HTTPS image URL"></label><button type="button" data-import="image">Choose image</button></div>
     <div class="asset-row"><label>Looping video<input name="video" value="${escape(scene.video ?? "")}" placeholder="Optional HTTPS MP4 URL"></label><button type="button" data-import="video">Choose video</button></div>
-    <p class="settings-note">Without a video, Ambiance uses a moving light background over your cover. Videos play without sound.</p>
+    <p class="settings-note">Without a video, Hushilume uses a moving light background over your cover. Videos play without sound.</p>
     <details><summary>Screen shape & notch</summary><p class="settings-note">Auto fits Mi A3. Use None for iPad, or tune a shape for another device. Sizes use screen pixels.</p>
     <div class="form-grid"><label>Device / shape<select name="notch">${[
       ["auto", "Automatic"],
@@ -95,7 +95,7 @@ export function createSettings(
     ${(["width", "depth", "offset"] as const).map((n) => `<label>${n === "offset" ? "Position (%)" : n}<input name="${n}" type="number" min="${n === "width" ? 20 : n === "depth" ? 5 : 10}" max="${n === "width" ? 300 : 90}" value="${draft.notch[n]}"></label>`).join("")}</div></details>
     <p class="settings-status" role="status" aria-live="polite"></p>
     <footer><button type="button" class="reset-settings">Reset cards</button><button type="submit" class="save-settings">Save changes</button></footer>
-    <p class="about">Ambiance · MIT open source · 0.2.1<br>Your files stay on this device. Provider players connect only when opened.</p></form></div>`;
+    <p class="about">Hushilume · MIT open source · 0.3.0<br>Your files stay on this device. Provider players connect only when opened.</p></form></div>`;
     const sourceSelect =
       dialog.querySelector<HTMLSelectElement>('[name="source"]')!;
     const sourceFields = () => {
@@ -109,7 +109,7 @@ export function createSettings(
       dialog.querySelector(".source-help")!.textContent = provider
         ? "Opens the provider’s visible player. Internet and sign-in may be required. Provider playback does not use ambient mode or crossfades."
         : kind === "files"
-          ? "Files are copied into Ambiance for reliable offline playback."
+          ? "Files are copied into Hushilume for reliable offline playback."
           : "Plays local recordings assigned to this scene. If none are installed, choose files on this device.";
     };
     sourceFields();
@@ -209,7 +209,7 @@ export function openProvider(kind: string, url: string, onClose: () => void) {
   const dialog = document.createElement("dialog");
   dialog.className = "provider-dialog";
   const close = document.createElement("button");
-  close.textContent = "Return to Ambiance";
+  close.textContent = "Return to Hushilume";
   const note = document.createElement("p");
   note.textContent =
     "Use the provider controls to play. Closing this player stops its audio.";

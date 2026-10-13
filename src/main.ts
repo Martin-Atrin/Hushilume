@@ -36,7 +36,7 @@ let audioGeneration = 0;
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 const duration = () => (reducedMotion.matches ? 50 : 1600);
 document.querySelector("#app")!.innerHTML = `
- <main class="room" data-mode="controls" aria-label="Ambiance music player">
+ <main class="room" data-mode="controls" aria-label="Hushilume music player">
  <nav class="pads" aria-label="Sound styles">${styles
    .map(
      (
@@ -320,7 +320,7 @@ const settings = createSettings(
     );
     render();
     prepareMedia();
-    window.dispatchEvent(new Event("ambiance-config"));
+    window.dispatchEvent(new Event("hushilume-config"));
   },
   () => {
     resumeAfterSettings = playing;

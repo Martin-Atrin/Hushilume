@@ -50,7 +50,7 @@ export const defaults: Card[] = definitions.map(
     scenes: names.map((name, i) => ({
       name,
       station: `${key}-${ids[i]}`,
-      poster: `/ambiance/${key}.svg`,
+      poster: `/hushilume/${key}.svg`,
       source: { kind: "library", url: "", files: [] },
     })),
   }),

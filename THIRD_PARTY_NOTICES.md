@@ -1,6 +1,6 @@
 # Third-party notices
 
-The MIT license covers Ambiance source and original assets under `public/ambiance`.
+The MIT license covers Hushilume source and original assets under `public/hushilume`.
 
 - Manrope font files: SIL Open Font License 1.1; see `public/fonts/OFL.txt`.
 - Capacitor core, Android, iOS, Device, and Filesystem: MIT; their package distributions include full notices.

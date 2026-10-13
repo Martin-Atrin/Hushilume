@@ -87,7 +87,7 @@ export function configureContours(getNotch: () => Notch) {
   screen.orientation?.addEventListener("change", () =>
     requestAnimationFrame(layout),
   );
-  window.addEventListener("ambiance-config", layout);
+  window.addEventListener("hushilume-config", layout);
   layout();
   if (Capacitor.isNativePlatform())
     void Device.getInfo()
