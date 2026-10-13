@@ -108,3 +108,9 @@ Music is the first use for this hardware. The wider goal is to find small, pract
 ## License
 
 Code and original Hushilume artwork: [MIT](LICENSE). Manrope: [SIL Open Font License](public/fonts/OFL.txt). Third-party packages retain their licenses. User-supplied media and provider content are not licensed by this project. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Installed-library loudness
+
+An installed library can carry measured loudness data for each track. Hushilume applies a constant gain before crossfading and uses a linked stereo peak limiter to protect boosted peaks. Tracks without measurements keep their original level. Provider embeds use the provider's audio controls.
+
+This does not automatically analyze new file imports. The operator's library analysis uses full-track EBU R128 measurements and a Lo-fi reference level.

@@ -1,3 +1,5 @@
+import limiterUrl from "./limiter-worklet.ts?worker&url";
+import { normalizationGain, type Loudness } from "./loudness";
 import { randomStart } from "./random-start";
 import { localAudioUrl } from "./native";
 export type Track = {
@@ -9,11 +11,13 @@ export type Track = {
   duration: number;
   source: string;
   license: string;
+  loudness?: Loudness;
 };
 type Deck = {
   media: HTMLAudioElement;
   source: MediaElementAudioSourceNode;
   gain: GainNode;
+  normalization: GainNode;
   track: Track;
   cleanup?: number;
   disposed: boolean;
@@ -21,6 +25,8 @@ type Deck = {
 const FADE = 5;
 export class AmbientAudio {
   private context?: AudioContext;
+  private output?: AudioWorkletNode;
+  private outputReady?: Promise<void>;
   private library?: Promise<Track[]>;
   private tracks: Track[] = [];
   private bags = new Map<string, Track[]>();
@@ -93,10 +99,24 @@ export class AmbientAudio {
     media.src = track.file;
     media.preload = "auto";
     const source = this.context!.createMediaElementSource(media),
-      gain = this.context!.createGain();
+      gain = this.context!.createGain(),
+      normalization = this.context!.createGain();
     gain.gain.value = 0;
-    source.connect(gain).connect(this.context!.destination);
-    const deck: Deck = { media, source, gain, track, disposed: false };
+    normalization.gain.value = this.output
+      ? normalizationGain(track.loudness)
+      : 1;
+    source
+      .connect(normalization)
+      .connect(gain)
+      .connect(this.output ?? this.context!.destination);
+    const deck: Deck = {
+      media,
+      source,
+      gain,
+      normalization,
+      track,
+      disposed: false,
+    };
     this.decks.add(deck);
     media.addEventListener("timeupdate", () => this.tick());
     media.addEventListener("ended", () => this.tick());
@@ -136,6 +156,7 @@ export class AmbientAudio {
     deck.media.load();
     deck.source.disconnect();
     deck.gain.disconnect();
+    deck.normalization.disconnect();
     this.decks.delete(deck);
   }
   private retire(deck: Deck, seconds = FADE) {
@@ -154,6 +175,21 @@ export class AmbientAudio {
     const generation = ++this.generation;
     this.context ??= new AudioContext();
     await this.context.resume();
+    this.outputReady ??= this.context.audioWorklet
+      .addModule(limiterUrl)
+      .then(() => {
+        this.output = new AudioWorkletNode(this.context!, "hushilume-limiter", {
+          outputChannelCount: [2],
+        });
+        this.output.connect(this.context!.destination);
+      })
+      .catch((error) => {
+        console.warn(
+          "Loudness normalization unavailable; using original levels.",
+          error,
+        );
+      });
+    await this.outputReady;
     if (overrides) this.tracks = overrides;
     else await this.loadLibrary();
     if (generation !== this.generation) return;
@@ -281,6 +317,9 @@ export class AmbientAudio {
   }
   getStatus() {
     return {
+      normalization: this.output
+        ? "measured-track-gain-with-peak-limiter"
+        : "unavailable",
       active: this.active,
       station: this.station,
       current: this.current
@@ -298,6 +337,8 @@ export class AmbientAudio {
         time: d.media.currentTime,
         paused: d.media.paused,
         gain: d.gain.gain.value,
+        normalizationGain: d.normalization.gain.value,
+        loudness: d.track.loudness,
       })),
       context: this.context?.state,
     };

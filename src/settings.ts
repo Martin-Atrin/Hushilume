@@ -95,7 +95,7 @@ export function createSettings(
     ${(["width", "depth", "offset"] as const).map((n) => `<label>${n === "offset" ? "Position (%)" : n}<input name="${n}" type="number" min="${n === "width" ? 20 : n === "depth" ? 5 : 10}" max="${n === "width" ? 300 : 90}" value="${draft.notch[n]}"></label>`).join("")}</div></details>
     <p class="settings-status" role="status" aria-live="polite"></p>
     <footer><button type="button" class="reset-settings">Reset cards</button><button type="submit" class="save-settings">Save changes</button></footer>
-    <p class="about">Hushilume · MIT open source · 0.3.0<br>Your files stay on this device. Provider players connect only when opened.</p></form></div>`;
+    <p class="about">Hushilume · MIT open source · 0.3.1<br>Your files stay on this device. Provider players connect only when opened.</p></form></div>`;
     const sourceSelect =
       dialog.querySelector<HTMLSelectElement>('[name="source"]')!;
     const sourceFields = () => {
