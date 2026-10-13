@@ -1,0 +1,32 @@
+{
+  "name": "ambiance",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/prepare-dev.ts && vite --host 0.0.0.0",
+    "build": "node scripts/build-web.ts",
+    "sync": "npm run build && npx cap sync",
+    "test": "node --test tests/*.test.ts"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
+  },
+  "dependencies": {
+    "@capacitor-community/keep-awake": "^8.0.1",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/device": "^8.0.3",
+    "@capacitor/filesystem": "^8.1.4",
+    "@capacitor/ios": "^8.5.3",
+    "@capawesome/capacitor-file-picker": "^8.1.0"
+  },
+  "license": "MIT",
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
